@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useCallback} from "react";
 import "./App.css";
 import ReactMapGL, {Marker, MapContainer, NavigationControl, Popup, GeolocateControl, FullscreenControl, FlyToInterpolator} from "react-map-gl";
-import ControlPanel from './control-panel';
+import ControlPanel from './components/control-panel';
 
 //format [[name, description, lat, long], [...], ...]
 const hotelData = require("./data/all_hotel_polarity.json"); 
@@ -68,7 +68,7 @@ const onSelectCity = useCallback(({longitude, latitude}) => {
     <ReactMapGL
       {...viewport}
       onViewportChange={nextViewport => setViewport(nextViewport)}
-      mapboxApiAccessToken = "pk.eyJ1IjoiamVlbmIiLCJhIjoiY2tuajFrM2VhMjV0OTJxb2FuMWs4OTF3NCJ9.poNlFPLHkm4oKPCo6XI1Aw"
+      mapboxApiAccessToken = "pk.eyJ1IjoibmlkdXAxMDEwIiwiYSI6ImNsMXcwbno3czM3NjEzYnM5NDJqZmI0eTYifQ.ZhXkbHXZx8b6MZP6-dvIyg"
       mapStyle = "mapbox://styles/mapbox/streets-v11">
       
       <NavigationControl style={navStyle} />
@@ -112,9 +112,6 @@ const onSelectCity = useCallback(({longitude, latitude}) => {
 
         </Popup> 
       ) : null}
-      <div className="statistic-container">
-          <h1>We will have the each day statistic here</h1>
-      </div>
     </ReactMapGL>
   );
 }
