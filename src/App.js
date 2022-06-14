@@ -1,7 +1,6 @@
 import React, {useEffect, useState, useCallback} from "react";
 import "./App.css";
 import ReactMapGL, {Marker, NavigationControl, Popup, GeolocateControl, FullscreenControl, FlyToInterpolator} from "react-map-gl";
-// import ControlPanel from './components/control-panel';
 import Navigation from "./components/navigation";
 
 //format [[name, description, lat, long], [...], ...]
