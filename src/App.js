@@ -1,27 +1,28 @@
 import React, {useEffect, useState, useCallback} from "react";
 import "./App.css";
-import ReactMapGL, {Marker, MapContainer, NavigationControl, Popup, GeolocateControl, FullscreenControl, FlyToInterpolator} from "react-map-gl";
-import ControlPanel from './components/control-panel';
+import ReactMapGL, {Marker, NavigationControl, Popup, GeolocateControl, FullscreenControl, FlyToInterpolator} from "react-map-gl";
+// import ControlPanel from './components/control-panel';
+import Navigation from "./components/navigation";
 
 //format [[name, description, lat, long], [...], ...]
 const hotelData = require("./data/all_hotel_polarity.json"); 
 
 //control variable for navigation control
 const geolocateStyle = {
-  top: "2%",
-  left: 0,
+  top: "7%",
+  right: 0,
   padding: '10px'
 };
 
 const fullscreenControlStyle = {
-  top: "7%",
-  left: 0,
+  top: "12%",
+  right: 0,
   padding: '10px'
 };
 
 const navStyle = {
-  top: "12%",
-  left: 0,
+  top: "17%",
+  right: 0,
   padding: '10px'
 };
 
@@ -70,10 +71,13 @@ const onSelectCity = useCallback(({longitude, latitude}) => {
       onViewportChange={nextViewport => setViewport(nextViewport)}
       mapboxApiAccessToken = "pk.eyJ1IjoibmlkdXAxMDEwIiwiYSI6ImNsMXcwbno3czM3NjEzYnM5NDJqZmI0eTYifQ.ZhXkbHXZx8b6MZP6-dvIyg"
       mapStyle = "mapbox://styles/mapbox/streets-v11">
+
+      <Navigation
+       onSelectCity = {onSelectCity}
+      />
       
       <NavigationControl style={navStyle} />
       <FullscreenControl style={fullscreenControlStyle} />
-      <ControlPanel onSelectCity={onSelectCity} />
 
       <GeolocateControl style={geolocateStyle} />
 

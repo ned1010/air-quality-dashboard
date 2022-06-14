@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import CITIES from '../data/cities.json';
 
-function ControlPanel(props) {
+export default function ControlPanel(props) {
   return (
 	<div className="wrapper">
 		{CITIES.map((city, index) => (
@@ -20,5 +20,3 @@ function ControlPanel(props) {
     </div>
   );
 }
-
-export default React.memo(ControlPanel);
